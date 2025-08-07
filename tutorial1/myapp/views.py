@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+import requests
 
 # def hello(request):
 #     # return HttpResponse("Hello, world! This is my first Django app.")
@@ -29,7 +30,19 @@ def getval(request, a,b):
     return HttpResponse(context)
 
 
-def  qurerypar(request):
+def query(request):
+    # http://localhost:8000/query/?name=k&rollno=34
     myname = request.GET.get("name")
-    return HttpResponse("<h1>content is: {myname}</h1>")
+    rollno = request.GET.get("rollno")
+    return HttpResponse(f"<h1>content is: {myname}, {rollno}</h1>")
 
+def jsonVal(request):
+    data = {"name":"Aman", "age":34}
+    return JsonResponse(data)   #from django.http import JsonResponse
+
+
+
+def getAPI(request):
+    apiVal = requests.get('https://api.sampleapis.com/coffee/hot')
+    data = apiVal.json() 
+    return JsonResponse(data, safe=False)  
