@@ -9,4 +9,5 @@ urlpatterns = [
     path('query/', views.query),
     path('jsonVal', views.jsonVal),
     path('getAPI/', views.getAPI),
+    path('first/', views.first),
 ]

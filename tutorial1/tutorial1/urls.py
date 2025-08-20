@@ -22,4 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myapp.urls')),  # Include the URLs from myapp
 ]
+
+handler404 = 'tutorial1.views.myHandler'
+
 from django.urls import path

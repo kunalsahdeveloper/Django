@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-import requests
+import requests 
+
+
 
 # def hello(request):
 #     # return HttpResponse("Hello, world! This is my first Django app.")
@@ -46,3 +48,7 @@ def getAPI(request):
     apiVal = requests.get('https://api.sampleapis.com/coffee/hot')
     data = apiVal.json() 
     return JsonResponse(data, safe=False)  
+
+
+def first(request):
+    return render(request,'first.html')
